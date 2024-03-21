@@ -74,7 +74,7 @@ const ImageSearch = () => {
         Image Search App
       </h1>
       <div className="container my-0 mx-auto text-center flex  mt-5">
-        <div className="w-2/3">
+        <div className="w-2/3 ml-10">
           <div className="flex items-center mb-5">
             <input
               type="text"
@@ -92,18 +92,23 @@ const ImageSearch = () => {
           </div>
           {imageUrl && (
             <div className="mt-5">
-              <img
-                className="max-w-full h-96 rounded-md w-96"
-                src={imageUrl}
-                alt="Searched Image"
-              />
-              <button onClick={handleAddFavorite}>
-                <FaHeart
-                  className={`text-2xl absolute top-40 right-[68%] ${
-                    isFavorite ? "text-pink-500" : "text-white"
-                  }`}
+              <div style={{ position: "relative", display: "inline-block" }}>
+                <img
+                  className="max-w-full h-96 rounded-md w-96"
+                  src={imageUrl}
+                  alt="Searched Image"
                 />
-              </button>
+                <button
+                  onClick={handleAddFavorite}
+                  style={{ position: "absolute", top: 0, right: 0, zIndex: 1 }}
+                >
+                  <FaHeart
+                    className={`text-2xl ${
+                      isFavorite ? "text-pink-500" : "text-white"
+                    }`}
+                  />
+                </button>
+              </div>
 
               <div className="flex gap-4">
                 <button
